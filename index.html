@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AB CamProtect — Installation Vidéosurveillance Île-de-France</title>
+  <meta name="description" content="Installation professionnelle de caméras de vidéosurveillance en Île-de-France. Devis 100% gratuit. Technicien qualifié. À partir de 150€.">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;800;900&family=Roboto:wght@300;400;500&display=swap');
+
+    :root {
+      --navy: #0d1a2e;
+      --navy-light: #1a3560;
+      --gold: #C9A84C;
+      --gold-light: #E8C97A;
+      --gold-dark: #9A7228;
+      --white: #ffffff;
+      --bg: #f4f7fb;
+      --text: #0d1a2e;
+      --text-muted: #6a7f9a;
+      --border: #dce5f0;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--white);
+      color: var(--text);
+    }
+
+    /* ══════════════ NAV ══════════════ */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      background: rgba(13, 26, 46, 0.97);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(201,168,76,0.2);
+      padding: 0 40px;
+      height: 68px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+    }
+
+    .nav-brand {
+      font-size: 17px;
+      font-weight: 900;
+      color: white;
+      letter-spacing: 0.3px;
+    }
+
+    .nav-brand .gold {
+      background: linear-gradient(90deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 32px;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 600;
+      color: rgba(255,255,255,0.65);
+      letter-spacing: 0.3px;
+      transition: color 0.2s;
+    }
+
+    .nav-links a:hover { color: var(--gold-light); }
+
+    .nav-cta {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: white !important;
+      padding: 8px 20px;
+      border-radius: 8px;
+      font-weight: 700 !important;
+      font-size: 12px !important;
+      letter-spacing: 0.5px;
+      transition: opacity 0.2s !important;
+    }
+
+    .nav-cta:hover { opacity: 0.9; color: white !important; }
+
+    /* ══════════════ HERO ══════════════ */
+    .hero {
+      background: var(--navy);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 100px 24px 80px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(201,168,76,0.04) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(201,168,76,0.04) 1px, transparent 1px);
+      background-size: 32px 32px;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: 720px;
+    }
+
+    /* Hero logo */
+    .hero-logo {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 36px;
+    }
+
+    .hero-eyebrow {
+      display: inline-block;
+      border: 1px solid rgba(201,168,76,0.45);
+      border-radius: 20px;
+      padding: 6px 20px;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 22px;
+    }
+
+    .hero h1 {
+      font-size: clamp(32px, 5vw, 52px);
+      font-weight: 900;
+      line-height: 1.15;
+      color: white;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 .blue {
+      color: #5b8fce;
+    }
+
+    .hero-sub {
+      font-size: 16px;
+      font-weight: 400;
+      color: rgba(255,255,255,0.55);
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.7;
+      margin-bottom: 40px;
+      max-width: 520px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: white;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      text-decoration: none;
+      letter-spacing: 0.3px;
+      transition: transform 0.2s, box-shadow 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.2);
+      color: white;
+      padding: 14px 32px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .btn-secondary:hover { background: rgba(255,255,255,0.14); }
+
+    /* Stats bar */
+    .hero-stats {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      margin-top: 56px;
+      padding-top: 32px;
+      border-top: 1px solid rgba(255,255,255,0.08);
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-number {
+      font-size: 28px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold-dark));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .stat-label {
+      font-size: 11px;
+      color: rgba(255,255,255,0.4);
+      font-family: 'Roboto', sans-serif;
+      margin-top: 4px;
+    }
+
+    /* Gold top bar */
+    .gold-bar {
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold), var(--gold-dark));
+    }
+
+    /* ══════════════ SECTION TITLE ══════════════ */
+    .section {
+      padding: 80px 24px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-eyebrow {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 10px;
+      text-align: center;
+    }
+
+    .section-title {
+      font-size: clamp(24px, 3vw, 34px);
+      font-weight: 900;
+      text-align: center;
+      color: var(--navy);
+      text-transform: uppercase;
+      letter-spacing: 0.3px;
+      margin-bottom: 12px;
+    }
+
+    .section-sub {
+      text-align: center;
+      color: var(--text-muted);
+      font-family: 'Roboto', sans-serif;
+      font-size: 15px;
+      line-height: 1.6;
+      max-width: 540px;
+      margin: 0 auto 52px;
+    }
+
+    /* ══════════════ SERVICES ══════════════ */
+    #services {
+      background: var(--bg);
+    }
+
+    #services .section {
+      padding: 80px 24px;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 20px;
+    }
+
+    .service-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 22px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(13,26,46,0.08);
+    }
+
+    .service-icon {
+      width: 50px;
+      height: 50px;
+      background: var(--navy);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      margin-bottom: 16px;
+    }
+
+    .service-card h3 {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      font-size: 13px;
+      color: var(--text-muted);
+      font-family: 'Roboto', sans-serif;
+      line-height: 1.55;
+    }
+
+    /* ══════════════ OFFRE ══════════════ */
+    .offre-block {
+      background: var(--navy);
+      border-radius: 20px;
+      padding: 48px 44px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 32px;
+      position: relative;
+      overflow: hidden;
+      flex-wrap: wrap;
+    }
+
+    .offre-block::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+    }
+
+    .offre-block::after {
+      content: '';
+      position: absolute;
+      right: -40px; top: -40px;
+      width: 200px; height: 200px;
+      background: radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);
+    }
+
+    .offre-left { position: relative; z-index: 2; }
+
+    .offre-title {
+      font-size: 26px;
+      font-weight: 900;
+      color: white;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+      letter-spacing: 0.3px;
+    }
+
+    .offre-title .gold {
+      background: linear-gradient(90deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .offre-items {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .offre-items li {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 14px;
+      color: rgba(255,255,255,0.75);
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .offre-items li::before {
+      content: '';
+      width: 18px;
+      height: 18px;
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      border-radius: 5px;
+      flex-shrink: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20' fill='white'%3E%3Cpath fill-rule='evenodd' d='M16.704 4.153a.75.75 0 01.143 1.052l-8 10.5a.75.75 0 01-1.127.075l-4.5-4.5a.75.75 0 011.06-1.06l3.894 3.893 7.48-9.817a.75.75 0 011.05-.143z' clip-rule='evenodd' /%3E%3C/svg%3E");
+      background-size: 12px;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+
+    .offre-right {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(201,168,76,0.25);
+      border-radius: 16px;
+      padding: 28px 36px;
+      flex-shrink: 0;
+    }
+
+    .offre-from {
+      font-size: 12px;
+      color: rgba(255,255,255,0.45);
+      font-family: 'Roboto', sans-serif;
+      margin-bottom: 4px;
+    }
+
+    .offre-price {
+      font-size: 52px;
+      font-weight: 900;
+      background: linear-gradient(135deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      line-height: 1;
+    }
+
+    .offre-pack {
+      font-size: 11px;
+      color: rgba(255,255,255,0.35);
+      font-family: 'Roboto', sans-serif;
+      margin-top: 6px;
+    }
+
+    /* ══════════════ CONTACT ══════════════ */
+    #contact {
+      background: var(--bg);
+    }
+
+    #contact .section {
+      max-width: 800px;
+    }
+
+    .contact-card {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 8px 32px rgba(13,26,46,0.06);
+    }
+
+    .contact-top {
+      background: var(--navy);
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .contact-top::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--gold-dark), var(--gold-light), var(--gold-dark));
+    }
+
+    .contact-info h3 {
+      font-size: 18px;
+      font-weight: 800;
+      color: white;
+      margin-bottom: 6px;
+    }
+
+    .contact-info p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .contact-direct {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .contact-direct a {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: rgba(255,255,255,0.75);
+      font-size: 13px;
+      font-family: 'Roboto', sans-serif;
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .contact-direct a:hover { color: var(--gold-light); }
+
+    .contact-direct-icon {
+      width: 28px;
+      height: 28px;
+      background: rgba(201,168,76,0.15);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      flex-shrink: 0;
+    }
+
+    /* Form */
+    .contact-form {
+      padding: 36px 40px;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      margin-bottom: 16px;
+    }
+
+    .form-group.full { grid-column: 1 / -1; }
+
+    label {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: 0.3px;
+    }
+
+    input, select, textarea {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      padding: 12px 16px;
+      font-size: 14px;
+      font-family: 'Roboto', sans-serif;
+      color: var(--text);
+      transition: border-color 0.2s, box-shadow 0.2s;
+      outline: none;
+      width: 100%;
+    }
+
+    input:focus, select:focus, textarea:focus {
+      border-color: var(--gold);
+      box-shadow: 0 0 0 3px rgba(201,168,76,0.12);
+    }
+
+    textarea { resize: vertical; min-height: 110px; }
+
+    .form-submit {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .form-note {
+      font-size: 11px;
+      color: var(--text-muted);
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .btn-submit {
+      background: linear-gradient(135deg, var(--gold), var(--gold-dark));
+      color: white;
+      border: none;
+      padding: 13px 32px;
+      border-radius: 10px;
+      font-size: 14px;
+      font-weight: 700;
+      font-family: 'Montserrat', sans-serif;
+      cursor: pointer;
+      letter-spacing: 0.3px;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+
+    .btn-submit:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(201,168,76,0.35);
+    }
+
+    /* Success message */
+    .form-success {
+      display: none;
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.4);
+      border-radius: 10px;
+      padding: 16px 20px;
+      font-size: 14px;
+      color: var(--gold-dark);
+      font-family: 'Roboto', sans-serif;
+      margin-top: 16px;
+      text-align: center;
+    }
+
+    /* ══════════════ FOOTER ══════════════ */
+    footer {
+      background: var(--navy);
+      padding: 32px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 16px;
+      border-top: 1px solid rgba(255,255,255,0.06);
+    }
+
+    .footer-brand {
+      font-size: 13px;
+      font-weight: 700;
+      color: rgba(255,255,255,0.4);
+    }
+
+    .footer-brand .gold {
+      background: linear-gradient(90deg, var(--gold-light), var(--gold));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-info {
+      font-size: 12px;
+      color: rgba(255,255,255,0.25);
+      font-family: 'Roboto', sans-serif;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      font-size: 12px;
+      color: rgba(255,255,255,0.3);
+      text-decoration: none;
+      font-family: 'Roboto', sans-serif;
+      transition: color 0.2s;
+    }
+
+    .footer-links a:hover { color: var(--gold-light); }
+
+    /* ══════════════ RESPONSIVE ══════════════ */
+    @media (max-width: 680px) {
+      nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 90px 20px 60px; }
+      .section { padding: 56px 20px; }
+      .offre-block { padding: 32px 24px; flex-direction: column; }
+      .offre-right { width: 100%; }
+      .form-row { grid-template-columns: 1fr; }
+      .contact-top { padding: 24px 24px 30px; }
+      .contact-form { padding: 24px; }
+      footer { padding: 24px 20px; flex-direction: column; text-align: center; }
+      .footer-links { justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ── BARRE DORÉE ── -->
+  <div class="gold-bar"></div>
+
+  <!-- ── NAV ── -->
+  <nav>
+    <a class="nav-logo" href="#top">
+      <svg width="100" height="32" viewBox="0 0 230 80" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="navGold" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" style="stop-color:#E8C97A"/>
+            <stop offset="50%" style="stop-color:#C9A84C"/>
+            <stop offset="100%" style="stop-color:#9A7228"/>
+          </linearGradient>
+        </defs>
+        <rect x="5" y="8" width="58" height="64" rx="10" fill="rgba(201,168,76,0.12)" stroke="url(#navGold)" stroke-width="1.5"/>
+        <rect x="14" y="27" width="30" height="20" rx="4" fill="url(#navGold)"/>
+        <circle cx="29" cy="37" r="7" fill="#0d1a2e" stroke="url(#navGold)" stroke-width="1.5"/>
+        <circle cx="29" cy="37" r="4" fill="url(#navGold)" opacity="0.65"/>
+        <circle cx="29" cy="37" r="1.5" fill="#0d1a2e"/>
+        <path d="M44 30 L52 26 L52 48 L44 44 Z" fill="url(#navGold)"/>
+        <circle cx="17" cy="30" r="2" fill="#0d1a2e"/>
+        <text x="77" y="30" font-family="Montserrat,sans-serif" font-weight="900" font-size="20" fill="url(#navGold)" letter-spacing="1">AB</text>
+        <line x1="77" y1="35.5" x2="220" y2="35.5" stroke="url(#navGold)" stroke-width="0.8" opacity="0.35"/>
+        <text x="77" y="52" font-family="Montserrat,sans-serif" font-weight="900" font-size="20" fill="white" letter-spacing="1">CAM</text>
+        <text x="77" y="65" font-family="Montserrat,sans-serif" font-weight="500" font-size="8.5" fill="rgba(255,255,255,0.4)" letter-spacing="3.5">PROTECT</text>
+      </svg>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#services">Nos services</a></li>
+      <li><a href="#offre">Offre</a></li>
+      <li><a href="#contact" class="nav-cta">Devis gratuit</a></li>
+    </ul>
+  </nav>
+
+  <!-- ── HERO ── -->
+  <section class="hero" id="top">
+    <div class="hero-inner">
+
+      <div class="hero-logo">
+        <svg width="180" height="64" viewBox="0 0 230 80" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="heroGold" x1="0%" y1="0%" x2="100%" y2="100%">
+              <stop offset="0%" style="stop-color:#E8C97A"/>
+              <stop offset="50%" style="stop-color:#C9A84C"/>
+              <stop offset="100%" style="stop-color:#9A7228"/>
+            </linearGradient>
+          </defs>
+          <rect x="5" y="8" width="58" height="64" rx="10" fill="rgba(201,168,76,0.1)" stroke="url(#heroGold)" stroke-width="1.5"/>
+          <rect x="14" y="27" width="30" height="20" rx="4" fill="url(#heroGold)"/>
+          <circle cx="29" cy="37" r="7" fill="#0d1a2e" stroke="url(#heroGold)" stroke-width="1.5"/>
+          <circle cx="29" cy="37" r="4" fill="url(#heroGold)" opacity="0.65"/>
+          <circle cx="29" cy="37" r="1.5" fill="#0d1a2e"/>
+          <path d="M44 30 L52 26 L52 48 L44 44 Z" fill="url(#heroGold)"/>
+          <circle cx="17" cy="30" r="2" fill="#0d1a2e"/>
+          <text x="77" y="30" font-family="Montserrat,sans-serif" font-weight="900" font-size="20" fill="url(#heroGold)" letter-spacing="1">AB</text>
+          <line x1="77" y1="35.5" x2="220" y2="35.5" stroke="url(#heroGold)" stroke-width="0.8" opacity="0.35"/>
+          <text x="77" y="52" font-family="Montserrat,sans-serif" font-weight="900" font-size="20" fill="white" letter-spacing="1">CAM</text>
+          <text x="77" y="65" font-family="Montserrat,sans-serif" font-weight="500" font-size="8.5" fill="rgba(255,255,255,0.38)" letter-spacing="3.5">PROTECT</text>
+        </svg>
+      </div>
+
+      <div class="hero-eyebrow">📍 Île-de-France · Particuliers & Professionnels</div>
+
+      <h1>La vidéosurveillance<br><span class="blue">accessible à tous</span></h1>
+
+      <p class="hero-sub">
+        Installation professionnelle de caméras chez vous par un technicien qualifié.<br>
+        Solution adaptée à vos besoins, sans se ruiner.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#contact" class="btn-primary">📋 Demander un devis gratuit</a>
+        <a href="tel:0638169749" class="btn-secondary">📞 06 38 16 97 49</a>
+      </div>
+
+      <div class="hero-stats">
+        <div class="stat">
+          <div class="stat-number">2 ans</div>
+          <div class="stat-label">d'expérience technique</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">Devis</div>
+          <div class="stat-label">sur mesure</div>
+        </div>
+        <div class="stat">
+          <div class="stat-number">48h</div>
+          <div class="stat-label">réponse devis garantie</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── SERVICES ── -->
+  <section id="services">
+    <div class="section">
+      <div class="section-eyebrow">Pourquoi nous choisir</div>
+      <h2 class="section-title">Un service complet et transparent</h2>
+      <p class="section-sub">De l'installation à la configuration, tout est pris en charge sur place.</p>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">🔧</div>
+          <h3>Technicien qualifié</h3>
+          <p>Expérience professionnelle en systèmes de vidéosurveillance avancés — matériel pro et grand public.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📱</div>
+          <h3>Configuration sur place</h3>
+          <p>Votre application smartphone configurée et testée avant de partir. Vous partez avec un système opérationnel.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💶</div>
+          <h3>Prix transparents</h3>
+          <p>Devis détaillé gratuit, sans engagement. Ce que vous acceptez, c'est ce que vous payez.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🛠️</div>
+          <h3>SAV inclus</h3>
+          <p>Service après-vente disponible en cas de problème lié à l'installation ou au matériel fourni.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏠</div>
+          <h3>Usages variés</h3>
+          <p>Animaux, enfants, résidence secondaire, personnes âgées, cabinet, commerce — on s'adapte à votre besoin.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📍</div>
+          <h3>Intervention locale</h3>
+          <p>Déplacement en Île-de-France. Intervention rapide et flexible selon vos disponibilités.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── OFFRE ── -->
+  <section id="offre">
+    <div class="section">
+      <div class="section-eyebrow">Notre offre</div>
+      <h2 class="section-title">Ce qui est inclus</h2>
+      <p class="section-sub">Un pack complet pour sécuriser votre domicile, sans mauvaise surprise.</p>
+
+      <div class="offre-block">
+        <div class="offre-left">
+          <div class="offre-title">Installation <span class="gold">complète</span></div>
+          <ul class="offre-items">
+            <li>Caméra(s) fournie(s) et installée(s)</li>
+            <li>Configuration application smartphone</li>
+            <li>Paramétrage de la durée de conservation</li>
+            <li>Conseils sur le positionnement et la réglementation</li>
+            <li>SAV en cas de problème d'installation</li>
+            <li>Devis 100% gratuit et sans engagement</li>
+          </ul>
+        </div>
+        <div class="offre-right">
+          <div class="offre-from">À partir de</div>
+          <div class="offre-price">300€</div>
+          <div class="offre-pack">pack complet installé</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ── -->
+  <section id="contact">
+    <div class="section">
+      <div class="section-eyebrow">Contact</div>
+      <h2 class="section-title">Demandez votre devis gratuit</h2>
+      <p class="section-sub">Réponse garantie sous 48h. Devis personnalisé et sans engagement.</p>
+
+      <div class="contact-card">
+        <div class="contact-top" style="justify-content:center; padding: 44px 40px 48px;">
+          <div style="text-align:center;">
+            <h3 style="font-size:22px; margin-bottom:10px;">Alexandre Barbarat</h3>
+            <p style="margin-bottom:20px;">Technicien installateur · Vidéosurveillance · Île-de-France</p>
+            <div style="font-size:16px; font-weight:800; letter-spacing:2px; text-transform:uppercase; color:white; margin-bottom:18px;">Coordonnées</div>
+            <div class="contact-direct" style="align-items:center; gap:16px;">
+              <a href="tel:0638169749" style="font-size:18px; font-weight:700;">
+                <div class="contact-direct-icon" style="width:36px; height:36px; font-size:16px;">📞</div>
+                06 38 16 97 49
+              </a>
+              <a href="mailto:abcamprotect@gmail.com" style="font-size:15px;">
+                <div class="contact-direct-icon" style="width:36px; height:36px; font-size:16px;">✉️</div>
+                abcamprotect@gmail.com
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ── -->
+  <footer>
+    <div class="footer-brand">AB <span class="gold">CAM</span>PROTECT</div>
+    <div class="footer-info">Île-de-France · Installation Vidéosurveillance · Auto-entrepreneur</div>
+    <div class="footer-links">
+      <a href="#top">Accueil</a>
+      <a href="#services">Services</a>
+      <a href="#contact">Contact</a>
+    </div>
+  </footer>
+
+  <script>
+    // Active nav link highlight
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(s => {
+        if (window.scrollY >= s.offsetTop - 100) current = s.id;
+      });
+      navLinks.forEach(a => {
+        a.style.color = a.getAttribute('href') === '#' + current
+          ? '#E8C97A' : '';
+      });
+    });
+  </script>
+</body>
+</html>
